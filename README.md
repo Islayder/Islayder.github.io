@@ -6,6 +6,8 @@ Integração com a API do GitHub: Exibe automaticamente meus repositórios, esta
 Design Responsivo: A interface foi projetada para garantir uma ótima experiência em qualquer dispositivo.
 Exibição de Projetos: Mostra uma lista dos meus projetos, com links para os repositórios no GitHub e detalhes importantes sobre cada um deles.
 Seção de Habilidades: Apresenta as tecnologias que utilizo em meus projetos, com uma breve descrição de cada uma.
+
+
 🔧 Tecnologias Utilizadas
 Frontend: HTML, CSS, JavaScript
 API: GitHub API (para obter dados sobre meus repositórios e contribuições)
