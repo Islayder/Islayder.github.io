@@ -16,7 +16,8 @@ const elements = {
     twitter: document.getElementById('twitter'),
     instagram: document.getElementById('instagram'),
     mobileMenuButton: document.getElementById('mobileMenuButton'),
-    navLinks: document.getElementById('navLinks')
+    navLinks: document.getElementById('navLinks'),
+    contactForm: document.querySelector('.contact-form')
 };
 
 const config = {
@@ -69,22 +70,67 @@ const updateThemeIcon = () => {
 
 elements.mobileMenuButton.addEventListener('click', () => {
     elements.navLinks.classList.toggle('active');
-    elements.themeToggle.classList.toggle('active');
 });
 
 elements.navLinks.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', () => {
         elements.navLinks.classList.remove('active');
-        elements.themeToggle.classList.remove('active');
     });
 });
+
+const handleContactFormSubmit = async (event) => {
+    event.preventDefault(); 
+
+    const form = event.target;
+    const submitButton = form.querySelector('.submit-btn');
+    const formData = new FormData(form);
+    const formDataObject = Object.fromEntries(formData.entries());
+
+    submitButton.disabled = true;
+    submitButton.textContent = 'Enviando...';
+    
+    try {
+        const response = await fetch(form.action, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: JSON.stringify(formDataObject)
+        });
+
+        if (response.ok) {
+            showFormMessage('Mensagem enviada com sucesso!', 'success');
+            form.reset();
+        } else {
+            throw new Error('Houve um problema ao enviar sua mensagem.');
+        }
+    } catch (error) {
+        console.error('Erro no envio do formulário:', error);
+        showFormMessage('Erro ao enviar. Tente novamente mais tarde.', 'error');
+    } finally {
+        submitButton.disabled = false;
+        submitButton.textContent = 'Enviar Mensagem';
+    }
+};
+
+const showFormMessage = (message, type) => {
+    const messageElement = document.createElement('div');
+    messageElement.className = `form-message ${type}`; 
+    messageElement.textContent = message;
+
+    elements.contactForm.insertAdjacentElement('afterend', messageElement);
+
+    setTimeout(() => {
+        messageElement.remove();
+    }, 5000);
+};
 
 const fetchUserData = async () => {
     try {
         const response = await fetch(`https://api.github.com/users/${config.username}`);
         if (!response.ok) throw new Error('Usuário não encontrado');
-        const userData = await response.json();
-        return userData;
+        return await response.json();
     } catch (error) {
         console.error('Erro ao buscar dados do usuário:', error);
         return null;
@@ -95,23 +141,10 @@ const fetchRepositories = async () => {
     try {
         const response = await fetch(`https://api.github.com/users/${config.username}/repos?per_page=100&sort=updated`);
         if (!response.ok) throw new Error('Falha ao buscar repositórios');
-        const repositories = await response.json();
-        return repositories;
+        return await response.json();
     } catch (error) {
         console.error('Erro ao buscar repositórios:', error);
         return [];
-    }
-};
-
-const fetchRepositoryLanguages = async (repoName) => {
-    try {
-        const response = await fetch(`https://api.github.com/repos/${config.username}/${repoName}/languages`);
-        if (!response.ok) throw new Error('Falha ao buscar linguagens do repositório');
-        const languages = await response.json();
-        return languages;
-    } catch (error) {
-        console.error('Erro ao buscar linguagens do repositório:', error);
-        return {};
     }
 };
 
@@ -131,68 +164,43 @@ const updateUserProfile = (userData) => {
     elements.twitter.href = config.socialLinks.twitter;
     elements.instagram.href = config.socialLinks.instagram;
 
+    document.querySelector('.profile-header.skeleton')?.classList.remove('skeleton');
     elements.avatar.classList.remove('skeleton');
     elements.name.classList.remove('skeleton-text');
     elements.bio.classList.remove('skeleton-text');
 };
 
-const createRepositoryCard = async (repo) => {
+const createRepositoryCard = (repo) => {
     const card = document.createElement('div');
     card.className = 'repository-card';
 
-    const updatedAt = new Date(repo.updated_at).toLocaleDateString('pt-BR');
-
-    const languages = await fetchRepositoryLanguages(repo.name);
-
-    const languagesContainer = document.createElement('div');
-    languagesContainer.className = 'repository-languages';
-
-    Object.keys(languages).forEach(language => {
-        const languageColor = config.languageColors[language] || config.languageColors.default;
-        const languageTag = document.createElement('div');
-        languageTag.className = 'language-tag';
-        languageTag.innerHTML = `
-            <span class="language-dot" style="background-color: ${languageColor}"></span>
-            ${language}
-        `;
-        languagesContainer.appendChild(languageTag);
-    });
-
-    if (Object.keys(languages).length === 0) {
-        const noLanguageTag = document.createElement('div');
-        noLanguageTag.className = 'language-tag';
-        noLanguageTag.textContent = 'Nenhuma linguagem detectada';
-        languagesContainer.appendChild(noLanguageTag);
-    }
+    const languageColor = config.languageColors[repo.language] || config.languageColors.default;
 
     card.innerHTML = `
-        <h3>${repo.name}</h3>
+        <h3>${repo.name} ${repo.fork ? '<span class="org-badge">Fork</span>' : ''}</h3>
         <p>${repo.description || 'Descrição não disponível'}</p>
         <div class="repository-meta">
-            <span>Atualizado em: ${updatedAt}</span>
+            <div class="language-tag">
+                <span class="language-dot" style="background-color: ${languageColor}"></span>
+                ${repo.language || 'N/A'}
+            </div>
+            <span>Atualizado em: ${new Date(repo.updated_at).toLocaleDateString('pt-BR')}</span>
         </div>
     `;
-
-    card.appendChild(languagesContainer);
-
     card.addEventListener('click', () => window.open(repo.html_url, '_blank'));
     return card;
 };
 
-const updateRepositoriesList = async (repositories) => {
+const updateRepositoriesList = (repositories) => {
     elements.repositories.innerHTML = '';
-    for (const repo of repositories) {
-        const card = await createRepositoryCard(repo);
+    repositories.forEach(repo => {
+        const card = createRepositoryCard(repo);
         elements.repositories.appendChild(card);
-    }
+    });
 };
 
-const updateLanguageFilter = async (repositories) => {
-    const languages = new Set();
-    for (const repo of repositories) {
-        const repoLanguages = await fetchRepositoryLanguages(repo.name);
-        Object.keys(repoLanguages).forEach(language => languages.add(language));
-    }
+const updateLanguageFilter = (repositories) => {
+    const languages = new Set(repositories.map(repo => repo.language).filter(Boolean));
     elements.languageFilter.innerHTML = '<option value="">Todas as Linguagens</option>';
     languages.forEach(language => {
         const option = document.createElement('option');
@@ -202,52 +210,40 @@ const updateLanguageFilter = async (repositories) => {
     });
 };
 
-const updateLanguageChart = (repositories) => {
-    const languageCounts = repositories.reduce((acc, repo) => {
-        if (repo.languages) {
-            Object.keys(repo.languages).forEach(language => {
-                acc[language] = (acc[language] || 0) + 1;
-            });
-        } else if (repo.language) {
-            acc[repo.language] = (acc[repo.language] || 0) + 1;
-        }
-        return acc;
-    }, {});
-
-    const maxCount = Math.max(...Object.values(languageCounts));
-    elements.languageChart.innerHTML = '';
-
-    Object.entries(languageCounts).forEach(([language, count]) => {
-        const percentage = (count / maxCount) * 100;
-        const barContainer = document.createElement('div');
-        barContainer.className = 'chart-bar';
-        barContainer.innerHTML = `
-            <div class="bar" style="height: ${percentage}%; background-color: ${config.languageColors[language] || config.languageColors.default}"></div>
-            <span class="bar-label">${language}<br>(${count})</span>
-        `;
-        elements.languageChart.appendChild(barContainer);
-    });
-};
-
-const handleSearch = async () => {
+const handleSearch = () => {
     const searchTerm = elements.searchInput.value.toLowerCase();
     const languageFilter = elements.languageFilter.value;
 
-    const filteredRepos = await Promise.all(config.allRepositories.map(async (repo) => {
-        const repoLanguages = await fetchRepositoryLanguages(repo.name);
+    const filteredRepos = config.allRepositories.filter(repo => {
         const matchesSearch = repo.name.toLowerCase().includes(searchTerm) ||
-                             (repo.description && repo.description.toLowerCase().includes(searchTerm));
-        const matchesLanguage = !languageFilter || Object.keys(repoLanguages).includes(languageFilter);
-        return matchesSearch && matchesLanguage ? repo : null;
-    })).then(results => results.filter(repo => repo !== null));
+                            (repo.description && repo.description.toLowerCase().includes(searchTerm));
+        const matchesLanguage = !languageFilter || repo.language === languageFilter;
+        return matchesSearch && matchesLanguage;
+    });
 
-    updateRepositoriesList(filteredRepos.slice(0, config.perPage * config.currentPage));
-    elements.loadMore.style.display = filteredRepos.length > config.perPage * config.currentPage ? 'block' : 'none';
+    config.currentPage = 1; 
+    const paginatedRepos = filteredRepos.slice(0, config.perPage);
+    updateRepositoriesList(paginatedRepos);
+
+    elements.loadMore.style.display = filteredRepos.length > config.perPage ? 'block' : 'none';
+    elements.loadMore.dataset.fullRepoList = JSON.stringify(filteredRepos); 
 };
 
 const handleLoadMore = () => {
+    const fullRepoList = JSON.parse(elements.loadMore.dataset.fullRepoList || '[]');
+    const start = config.currentPage * config.perPage;
+    const end = start + config.perPage;
+    const nextRepos = fullRepoList.slice(start, end);
+
+    nextRepos.forEach(repo => {
+        const card = createRepositoryCard(repo);
+        elements.repositories.appendChild(card);
+    });
+
     config.currentPage++;
-    handleSearch();
+    if (end >= fullRepoList.length) {
+        elements.loadMore.style.display = 'none';
+    }
 };
 
 const initialize = async () => {
@@ -258,13 +254,18 @@ const initialize = async () => {
     elements.languageFilter.addEventListener('change', handleSearch);
     elements.loadMore.addEventListener('click', handleLoadMore);
 
+    if (elements.contactForm) {
+        elements.contactForm.addEventListener('submit', handleContactFormSubmit);
+    }
+
     const userData = await fetchUserData();
     updateUserProfile(userData);
 
     config.allRepositories = await fetchRepositories();
-    await updateLanguageFilter(config.allRepositories);
-    updateLanguageChart(config.allRepositories);
-    handleSearch();
+    updateLanguageFilter(config.allRepositories);
+    updateRepositoriesList(config.allRepositories.slice(0, config.perPage));
+    elements.loadMore.style.display = config.allRepositories.length > config.perPage ? 'block' : 'none';
+    elements.loadMore.dataset.fullRepoList = JSON.stringify(config.allRepositories);
 };
 
 initialize();
