@@ -223,9 +223,83 @@ body {
     line-height: 1.8;
 }
 
-.experience-section h3 {
+.experience-section {
+    margin-bottom: 3rem;
+    padding: 2rem;
+    background-color: var(--card-bg);
+    border-radius: 10px;
+    box-shadow: 0 4px 6px var(--shadow-color);
+}
+
+.experience-section h2 {
+    font-size: 1.75rem;
+    margin-bottom: 2rem;
+    color: var(--primary-color);
+    text-align: center;
+}
+
+.experience-item {
+    margin-bottom: 2.5rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.experience-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.experience-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.experience-header h3 {
+    font-size: 1.3rem;
+    color: var(--text-color);
+}
+
+.experience-period {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: bold;
+}
+
+.experience-company {
     margin-bottom: 1rem;
-    margin-top: 0.4rem;
+}
+
+.experience-company span {
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.experience-description p {
+    margin-bottom: 1rem;
+    line-height: 1.7;
+}
+
+.experience-skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.experience-skills li {
+    list-style: none;
+    background-color: var(--bg-color-secondary);
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
 }
 
 .education-section h3 {
@@ -534,28 +608,23 @@ body {
     transform: translateY(-2px);
 }
 
-/* === MEDIA QUERIES === */
 @media (max-width: 768px) {
     .nav-container {
         flex-direction: row;
-        /* Revertido para manter o menu hamburguer na lateral */
         justify-content: space-between;
         align-items: center;
     }
 
     .logo {
         display: flex;
-        /* Garante que o logo apareça */
     }
 
     .theme-toggle {
         display: block;
-        /* Garante que o toggle de tema apareça */
     }
 
     .nav-links {
         display: none;
-        /* Esconde os links por padrão */
     }
 
     .nav-links.active {
@@ -648,10 +717,24 @@ body {
         flex-direction: column;
         gap: 0.5rem;
     }
+
+    .experience-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+    
+    .experience-period {
+        align-self: flex-start;
+    }
+    
+    .experience-skills {
+        justify-content: flex-start;
+    }
 }
 
 @media (min-width: 769px) {
-    .mobile-menu-button {
+    .mobile-menu-button { 
         display: none;
     }
 }
