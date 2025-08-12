@@ -37,6 +37,20 @@ O portfólio está hospedado e pode ser acessado em:
 
 ---
 
+## 🎨 Planejamento e Design (Wireframes)
+
+Para atender ao requisito de planejamento e prototipação da sprint, foi desenvolvido um design de alta fidelidade que serviu como guia para a construção do front-end. O design abrange a estrutura de layout, a disposição dos componentes, a tipografia e o esquema de cores.
+
+Abaixo está a visualização do protótipo:
+
+![Design do Portfólio](assets/images/design-portfolio.png)
+
+*O projeto completo, com as versões para desktop e mobile, pode ser acessado no Figma através do link abaixo:*
+
+**[➡️ Acesse o projeto no Figma](LINK_PARA_SEU_PROJETO_NO_FIGMA)**
+
+---
+
 ## 📁 Estrutura de Diretórios
 
 O projeto está organizado da seguinte forma para manter a clareza e a modularidade:
