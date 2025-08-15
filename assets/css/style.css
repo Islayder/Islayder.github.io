@@ -608,6 +608,34 @@ body {
     transform: translateY(-2px);
 }
 
+/* ====================================================== */
+/* === NOVOS ESTILOS PARA O BOTÃO DE IDIOMA E CONTÊINER === */
+/* ====================================================== */
+
+.controls-container {
+    display: flex;
+    align-items: center;
+    gap: 1rem; /* Espaçamento entre o botão de tema e o de idioma */
+}
+
+.language-toggle button {
+    background: none;
+    border: 1px solid var(--border-color);
+    color: var(--text-color);
+    cursor: pointer;
+    padding: 0.5rem 0.8rem;
+    border-radius: 6px;
+    font-weight: bold;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.language-toggle button:hover {
+    background-color: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+}
+
+
 @media (max-width: 768px) {
     .nav-container {
         flex-direction: row;
@@ -618,11 +646,7 @@ body {
     .logo {
         display: flex;
     }
-
-    .theme-toggle {
-        display: block;
-    }
-
+    
     .nav-links {
         display: none;
     }

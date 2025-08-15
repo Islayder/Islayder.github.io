@@ -31,102 +31,89 @@
             </button>
 
             <ul class="nav-links" id="navLinks">
-                <li><a href="#perfil">Perfil</a></li>
-                <li><a href="#sobre-mim">Sobre Mim</a></li>
-                <li><a href="#experiencias">Experiências</a></li>
-                <li><a href="#linguagens-tecnologias">Habilidades</a></li>
-                <li><a href="#repositorios">Repositórios</a></li>
-                <li><a href="#contato">Contato</a></li>
+                <li><a href="#perfil" data-translate="navProfile">Perfil</a></li>
+                <li><a href="#sobre-mim" data-translate="navAbout">Sobre Mim</a></li>
+                <li><a href="#experiencias" data-translate="navExperience">Experiências</a></li>
+                <li><a href="#linguagens-tecnologias" data-translate="navSkills">Habilidades</a></li>
+                <li><a href="#repositorios" data-translate="navRepositories">Repositórios</a></li>
+                <li><a href="#contato" data-translate="navContact">Contato</a></li>
             </ul>
 
-            <div class="theme-toggle">
-                <button id="themeToggle" aria-label="Alternar modo escuro">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                        class="moon">
-                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                    </svg>
-                </button>
+            <div class="controls-container">
+                <div class="theme-toggle">
+                    <button id="themeToggle" aria-label="Alternar modo escuro">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="moon">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        </svg>
+                    </button>
+                </div>
+                <div class="language-toggle">
+                    <button id="languageToggle" aria-label="Change language">EN</button>
+                </div>
             </div>
         </nav>
     </header>
     <main class="container">
-        
+
         <section id="perfil" class="profile-section">
             <div class="profile-header skeleton">
                 <div class="avatar-container">
                     <img id="avatar" class="avatar skeleton" src="" alt="Avatar do perfil">
                 </div>
                 <div class="profile-info">
-                    <h1 id="name" class="skeleton-text">Carregando...</h1>
-                    <p id="bio" class="skeleton-text">Carregando...</p>
+                    <h1 id="name" class="skeleton-text" data-translate="loading">Carregando...</h1>
+                    <p id="bio" class="skeleton-text" data-translate="loading">Carregando...</p>
                     <div class="stats">
                         <div class="stat">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
                                 <circle cx="9" cy="7" r="4"></circle>
                                 <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
                                 <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
                             </svg>
-                            <span id="followers">-</span> seguidores
+                            <span id="followers">-</span> <span data-translate="followers">seguidores</span>
                         </div>
                         <div class="stat">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round">
-                                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
-                                <circle cx="9" cy="7" r="4"></circle>
-                                <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
-                                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-                            </svg>
-                            <span id="following">-</span> seguindo
+                           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                               <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                               <circle cx="9" cy="7" r="4"></circle>
+                               <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
+                               <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                           </svg>
+                            <span id="following">-</span> <span data-translate="following">seguindo</span>
                         </div>
                         <div class="stat">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round">
-                                <path
-                                    d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
-                                </path>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
                             </svg>
-                            <span id="repos">-</span> repositórios
+                            <span id="repos">-</span> <span data-translate="repositories">repositórios</span>
                         </div>
                     </div>
                     <div class="social-links">
                         <div class="location-info">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
                                 <circle cx="12" cy="10" r="3"></circle>
                             </svg>
-                            <span id="location">Carregando...</span>
+                            <span id="location" data-translate="loading">Carregando...</span>
                         </div>
                         <div class="social-icons">
                             <a href="#" id="linkedin" target="_blank" class="social-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round">
-                                    <path
-                                        d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
                                     <rect width="4" height="12" x="2" y="9" />
                                     <circle cx="4" cy="4" r="2" />
                                 </svg>
                             </a>
                             <a href="#" id="twitter" target="_blank" class="social-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round">
-                                    <path
-                                        d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z" />
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z" />
                                 </svg>
                             </a>
                             <a href="#" id="instagram" target="_blank" class="social-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                     <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
                                     <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
                                     <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
@@ -139,23 +126,18 @@
         </section>
 
         <section id="sobre-mim" class="about-section">
-            <h2>Sobre Mim</h2>
-            <p>
+            <h2 data-translate="aboutMeTitle">Sobre Mim</h2>
+            <p data-translate="aboutMeP1">
                 Olá! Meu nome é <strong>Islayder</strong>. Sou um profissional de tecnologia com foco em <strong>Análise de Requisitos</strong> e uma forte capacidade para atuar como <strong>Product Owner (PO)</strong>. Minha paixão é conectar a visão de negócio às soluções técnicas, dialogando diretamente com clientes para entender suas dores e transformar ideias em produtos de sucesso.
             </p>
-            <p>
+            <p data-translate="aboutMeP2">
                 Com experiência em metodologias ágeis, sou responsável por definir a visão do produto, priorizar o backlog e garantir que o desenvolvimento esteja alinhado com as expectativas dos stakeholders. Para embasar minhas decisões, utilizo <strong>Python</strong> para análise de dados, extraindo insights que direcionam a estratégia e validam os requisitos do projeto.
             </p>
             
             <hr>
-            <p>
-                <strong>(English Version)</strong><br>
-                Hello! My name is <strong>Islayder</strong>. I am a technology professional focused on <strong>Requirements Analysis</strong> with a strong ability to act as a <strong>Product Owner (PO)</strong>. My passion is to connect the business vision to technical solutions, engaging directly with clients to understand their challenges and transform ideas into successful products. With experience in agile methodologies, I am responsible for defining the product vision, prioritizing the backlog, and ensuring that development is aligned with stakeholder expectations. To support my decisions, I use <strong>Python</strong> for data analysis, extracting insights that guide the strategy and validate project requirements.
-            </p>
-            <hr>
 
             <div class="education-section">
-                <h3>Formação Acadêmica</h3>
+                <h3 data-translate="academicFormation">Formação Acadêmica</h3>
                 <div class="education-item">
                     <div class="education-logo">
                         <img src="https://www.tagarelaschool.com.br/wp-content/uploads/2022/02/23.png"
@@ -179,26 +161,26 @@
 
         <section id="experiencias" class="experience-section">
             <div class="experience-container">
-                <h2>Experiências Profissionais</h2>
+                <h2 data-translate="experienceTitle">Experiências Profissionais</h2>
                 
                 <div class="experience-item">
                     <div class="experience-header">
-                        <h3>Analista de Requisitos</h3>
-                        <span class="experience-period">Julho 2025 - Presente</span>
+                        <h3 data-translate="jobTitle">Analista de Requisitos</h3>
+                        <span class="experience-period" data-translate="jobPeriod">Julho 2025 - Presente</span>
                     </div>
                     <div class="experience-company">
                         <span>Empresa 4 MTI</span>
                     </div>
                     <div class="experience-description">
-                        <p>
+                        <p data-translate="jobDescription">
                             Atuo como a principal ponte entre clientes e a equipe de desenvolvimento. Sou responsável por todo o ciclo de vida dos requisitos: desde o levantamento inicial e a definição da visão do produto em conversas com stakeholders, até a priorização do backlog e a criação de histórias de usuário detalhadas. Utilizo Python para análises que suportam a tomada de decisões estratégicas do produto.
                         </p>
                         <ul class="experience-skills">
-                            <li>Análise de Requisitos</li>
-                            <li>Product Ownership</li>
-                            <li>Python para Análise de Dados</li>
-                            <li>Metodologias Ágeis</li>
-                            <li>Gestão de Backlog</li>
+                            <li data-translate="skillReqAnalysis">Análise de Requisitos</li>
+                            <li data-translate="skillProdOwner">Product Ownership</li>
+                            <li data-translate="skillPython">Python para Análise de Dados</li>
+                            <li data-translate="skillAgile">Metodologias Ágeis</li>
+                            <li data-translate="skillBacklog">Gestão de Backlog</li>
                         </ul>
                     </div>
                 </div>
@@ -206,8 +188,8 @@
         </section>
 
         <section id="projetos-destaque" class="repositories-section">
-            <h2>Projetos em Destaque</h2>
-            <p style="text-align: center; margin-bottom: 2rem;">Uma seleção dos meus principais projetos, com imagens e tecnologias utilizadas.</p>
+            <h2 data-translate="featuredProjectsTitle">Projetos em Destaque</h2>
+            <p style="text-align: center; margin-bottom: 2rem;" data-translate="featuredProjectsDesc">Uma seleção dos meus principais projetos, com imagens e tecnologias utilizadas.</p>
             <div class="repositories-grid">
                 <div class="repository-card">
                     <img src="https://via.placeholder.com/400x250.png?text=Imagem+do+seu+Projeto" alt="Imagem do Projeto 1" style="width:100%; border-radius: 6px; margin-bottom: 1rem;">
@@ -241,52 +223,42 @@
         </section>
         
         <section id="linguagens-tecnologias" class="languages-section">
-            <h2>Habilidades e Ferramentas</h2>
+            <h2 data-translate="skillsTitle">Habilidades e Ferramentas</h2>
             <div class="languages-grid">
                 <div class="language-item">
-                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/python.svg" alt="Python"
-                        class="language-icon">
+                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/python.svg" alt="Python" class="language-icon">
                     <span>Python</span>
                 </div>
                 <div class="language-item">
-                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/pandas.svg" alt="Pandas"
-                        class="language-icon">
+                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/pandas.svg" alt="Pandas" class="language-icon">
                     <span>Pandas</span>
                 </div>
                 <div class="language-item">
-                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/numpy.svg" alt="NumPy"
-                        class="language-icon">
+                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/numpy.svg" alt="NumPy" class="language-icon">
                     <span>NumPy</span>
                 </div>
                 <div class="language-item">
-                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/git.svg" alt="Git"
-                        class="language-icon">
+                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/git.svg" alt="Git" class="language-icon">
                     <span>Git</span>
                 </div>
                 <div class="language-item">
-                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/jira.svg" alt="Jira"
-                        class="language-icon">
+                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/jira.svg" alt="Jira" class="language-icon">
                     <span>Jira</span>
                 </div>
                 <div class="language-item">
-                    <img src="https://img.icons8.com/ios-filled/50/000000/sql.png" 
-                        alt="Ícone representando SQL" 
-                        class="language-icon">
+                    <img src="https://img.icons8.com/ios-filled/50/000000/sql.png" alt="Ícone representando SQL" class="language-icon">
                     <span title="Linguagem de consulta estruturada (SQL)">SQL</span>
                 </div>
                 <div class="language-item">
-                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/html5.svg" alt="HTML"
-                        class="language-icon">
+                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/html5.svg" alt="HTML" class="language-icon">
                     <span>HTML5</span>
                 </div>
                 <div class="language-item">
-                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/css3.svg" alt="CSS3"
-                        class="language-icon">
+                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/css3.svg" alt="CSS3" class="language-icon">
                     <span>CSS3</span>
                 </div>
                 <div class="language-item">
-                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/javascript.svg" alt="JavaScript"
-                        class="language-icon">
+                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/javascript.svg" alt="JavaScript" class="language-icon">
                     <span>JavaScript</span>
                 </div>
             </div>
@@ -298,21 +270,21 @@
                     <input type="text" id="searchInput" placeholder="Buscar repositórios..." class="search-input">
                     <div class="filter-container">
                         <select id="languageFilter" class="language-filter">
-                            <option value="">Todas as Linguagens</option>
+                            <option value="" data-translate="allLanguages">Todas as Linguagens</option>
                         </select>
                     </div>
                 </div>
             </div>
 
-            <h2 id="title-repositories">Repositórios</h2>
+            <h2 id="title-repositories" data-translate="repositoriesTitle">Repositórios</h2>
             <div id="repositories" class="repositories-grid">
             </div>
-            <button id="loadMore" class="load-more-btn">Carregar Mais</button>
+            <button id="loadMore" class="load-more-btn" data-translate="loadMore">Carregar Mais</button>
         </section>
 
         <section id="contato" class="contact-section">
-            <h2>Entre em Contato</h2>
-            <p>Tem alguma pergunta ou oportunidade? Preencha o formulário abaixo que responderei em breve.</p>
+            <h2 data-translate="contactTitle">Entre em Contato</h2>
+            <p data-translate="contactDesc">Tem alguma pergunta ou oportunidade? Preencha o formulário abaixo que responderei em breve.</p>
             
             <div class="social-icons" style="justify-content: center; margin-bottom: 2rem; font-size: 1.5rem; gap: 1.5rem;">
                 <a href="mailto:islayderjack@gmail.com" target="_blank" class="social-icon" aria-label="Email">
@@ -327,23 +299,23 @@
                 <input type="hidden" name="access_key" value="4a4b2b04-cf19-4033-b9a3-711a1ccb1981">
         
                 <div class="form-group">
-                    <label for="name">Nome:</label>
+                    <label for="name" data-translate="formName">Nome:</label>
                     <input type="text" id="name" name="name" required>
                 </div>
                 
                 <div class="form-group">
-                    <label for="email">Seu E-mail:</label>
+                    <label for="email" data-translate="formEmail">Seu E-mail:</label>
                     <input type="email" id="email" name="email" required>
                 </div>
                 
                 <div class="form-group">
-                    <label for="message">Mensagem:</label>
+                    <label for="message" data-translate="formMessage">Mensagem:</label>
                     <textarea id="message" name="message" rows="5" required></textarea>
                 </div>
         
                 <input type="hidden" name="subject" value="Novo Contato do Portfólio - De: {{ name }}">
                 
-                <button type="submit" class="submit-btn">Enviar Mensagem</button>
+                <button type="submit" class="submit-btn" data-translate="formSubmit">Enviar Mensagem</button>
         
             </form>
         </section>
@@ -354,10 +326,10 @@
         <div class="footer-content">
             <div class="footer-info">
                 <p>© 2025 - Portfólio GitHub</p>
-                <p>Desenvolvido por Islayder</p>
+                <p data-translate="footerDevelopedBy">Desenvolvido por Islayder</p>
             </div>
             <div class="footer-links">
-                <a href="#perfil">Voltar ao Topo</a>
+                <a href="#perfil" data-translate="footerBackToTop">Voltar ao Topo</a>
             </div>
         </div>
     </footer>

@@ -17,7 +17,8 @@ const elements = {
     instagram: document.getElementById('instagram'),
     mobileMenuButton: document.getElementById('mobileMenuButton'),
     navLinks: document.getElementById('navLinks'),
-    contactForm: document.querySelector('.contact-form')
+    contactForm: document.querySelector('.contact-form'),
+    languageToggle: document.getElementById('languageToggle')
 };
 
 const config = {
@@ -48,6 +49,137 @@ const config = {
         instagram: 'https://instagram.com/islayderjackson'
     }
 };
+
+let cachedUserData = null;
+
+// ========== SISTEMA DE TRADUÇÃO ==========
+const translations = {
+    'pt-BR': {
+        'navProfile': 'Perfil',
+        'navAbout': 'Sobre Mim',
+        'navExperience': 'Experiências',
+        'navSkills': 'Habilidades',
+        'navRepositories': 'Repositórios',
+        'navContact': 'Contato',
+        'followers': 'seguidores',
+        'following': 'seguindo',
+        'repositories': 'repositórios',
+        'loading': 'Carregando...',
+        'aboutMeTitle': 'Sobre Mim',
+        'aboutMeP1': 'Olá! Meu nome é <strong>Islayder</strong>. Sou um profissional de tecnologia com foco em <strong>Análise de Requisitos</strong> e uma forte capacidade para atuar como <strong>Product Owner (PO)</strong>. Minha paixão é conectar a visão de negócio às soluções técnicas, dialogando diretamente com clientes para entender suas dores e transformar ideias em produtos de sucesso.',
+        'aboutMeP2': 'Com experiência em metodologias ágeis, sou responsável por definir a visão do produto, priorizar o backlog e garantir que o desenvolvimento esteja alinhado com as expectativas dos stakeholders. Para embasar minhas decisões, utilizo <strong>Python</strong> para análise de dados, extraindo insights que direcionam a estratégia e validam os requisitos do projeto.',
+        'academicFormation': 'Formação Acadêmica',
+        'experienceTitle': 'Experiências Profissionais',
+        'jobTitle': 'Analista de Requisitos',
+        'jobPeriod': 'Julho 2025 - Presente',
+        'jobDescription': 'Atuo como a principal ponte entre clientes e a equipe de desenvolvimento. Sou responsável por todo o ciclo de vida dos requisitos: desde o levantamento inicial e a definição da visão do produto em conversas com stakeholders, até a priorização do backlog e a criação de histórias de usuário detalhadas. Utilizo Python para análises que suportam a tomada de decisões estratégicas do produto.',
+        'skillReqAnalysis': 'Análise de Requisitos',
+        'skillProdOwner': 'Product Ownership',
+        'skillPython': 'Python para Análise de Dados',
+        'skillAgile': 'Metodologias Ágeis',
+        'skillBacklog': 'Gestão de Backlog',
+        'featuredProjectsTitle': 'Projetos em Destaque',
+        'featuredProjectsDesc': 'Uma seleção dos meus principais projetos, com imagens e tecnologias utilizadas.',
+        'skillsTitle': 'Habilidades e Ferramentas',
+        'allLanguages': 'Todas as Linguagens',
+        'repositoriesTitle': 'Repositórios',
+        'loadMore': 'Carregar Mais',
+        'contactTitle': 'Entre em Contato',
+        'contactDesc': 'Tem alguma pergunta ou oportunidade? Preencha o formulário abaixo que responderei em breve.',
+        'formName': 'Nome:',
+        'formEmail': 'Seu E-mail:',
+        'formMessage': 'Mensagem:',
+        'formSubmit': 'Enviar Mensagem',
+        'footerDevelopedBy': 'Desenvolvido por Islayder',
+        'footerBackToTop': 'Voltar ao Topo'
+    },
+    'en': {
+        'navProfile': 'Profile',
+        'navAbout': 'About Me',
+        'navExperience': 'Experience',
+        'navSkills': 'Skills',
+        'navRepositories': 'Repositories',
+        'navContact': 'Contact',
+        'followers': 'followers',
+        'following': 'following',
+        'repositories': 'repositories',
+        'loading': 'Loading...',
+        'aboutMeTitle': 'About Me',
+        'aboutMeP1': 'Hello! My name is <strong>Islayder</strong>. I am a technology professional focused on <strong>Requirements Analysis</strong> with strong skills as a <strong>Product Owner (PO)</strong>. My passion is connecting business vision with technical solutions, working directly with clients to understand their pain points and transform ideas into successful products.',
+        'aboutMeP2': 'With experience in agile methodologies, I am responsible for defining the product vision, prioritizing the backlog, and ensuring development aligns with stakeholder expectations. To support my decisions, I use <strong>Python</strong> for data analysis, extracting insights that guide strategy and validate project requirements.',
+        'academicFormation': 'Academic Background',
+        'experienceTitle': 'Professional Experience',
+        'jobTitle': 'Requirements Analyst',
+        'jobPeriod': 'July 2025 - Present',
+        'jobDescription': 'I serve as the main bridge between clients and the development team. I am responsible for the entire requirements lifecycle: from initial gathering and product vision definition in stakeholder conversations, to backlog prioritization and creation of detailed user stories. I use Python for analyses that support strategic product decisions.',
+        'skillReqAnalysis': 'Requirements Analysis',
+        'skillProdOwner': 'Product Ownership',
+        'skillPython': 'Python for Data Analysis',
+        'skillAgile': 'Agile Methodologies',
+        'skillBacklog': 'Backlog Management',
+        'featuredProjectsTitle': 'Featured Projects',
+        'featuredProjectsDesc': 'A selection of my main projects, with images and technologies used.',
+        'skillsTitle': 'Skills and Tools',
+        'allLanguages': 'All Languages',
+        'repositoriesTitle': 'Repositories',
+        'loadMore': 'Load More',
+        'contactTitle': 'Contact Me',
+        'contactDesc': 'Have a question or opportunity? Fill out the form below and I will respond soon.',
+        'formName': 'Name:',
+        'formEmail': 'Your Email:',
+        'formMessage': 'Message:',
+        'formSubmit': 'Send Message',
+        'footerDevelopedBy': 'Developed by Islayder',
+        'footerBackToTop': 'Back to Top'
+    }
+};
+
+const updatePageTexts = (lang) => {
+    document.documentElement.lang = lang;
+    
+    document.querySelectorAll('[data-translate]').forEach(element => {
+        if (element.id !== 'name') { 
+            const key = element.getAttribute('data-translate');
+            if (translations[lang] && translations[lang][key]) {
+                if (['P', 'DIV', 'SPAN'].includes(element.tagName)) {
+                    element.innerHTML = translations[lang][key];
+                } else {
+                    element.textContent = translations[lang][key];
+                }
+            }
+        }
+    });
+    
+    if (cachedUserData) {
+        elements.bio.textContent = cachedUserData.bio || (lang === 'pt-BR' ? 'Biografia não disponível' : 'Bio not available');
+        elements.location.textContent = cachedUserData.location || (lang === 'pt-BR' ? 'Localização não especificada' : 'Location not specified');
+    }
+    
+    elements.languageToggle.textContent = lang === 'pt-BR' ? 'EN' : 'PT';
+    
+    elements.loadMore.textContent = lang === 'pt-BR' ? 'Carregar Mais' : 'Load More';
+    
+    elements.searchInput.placeholder = lang === 'pt-BR' ? 'Buscar repositórios...' : 'Search repositories...';
+    
+    if (config.allRepositories.length > 0) {
+        updateLanguageFilter(config.allRepositories);
+    }
+    
+    localStorage.setItem('preferredLanguage', lang);
+};
+
+const initializeLanguage = () => {
+    const savedLang = localStorage.getItem('preferredLanguage') || 'pt-BR';
+    updatePageTexts(savedLang);
+    
+    elements.languageToggle.addEventListener('click', () => {
+        const currentLang = document.documentElement.lang;
+        const newLang = currentLang === 'pt-BR' ? 'en' : 'pt-BR';
+        updatePageTexts(newLang);
+    });
+};
+
+// ========== FIM DO SISTEMA DE TRADUÇÃO ==========
 
 const initializeTheme = () => {
     const savedTheme = localStorage.getItem('theme') || 'light';
@@ -87,7 +219,7 @@ const handleContactFormSubmit = async (event) => {
     const formDataObject = Object.fromEntries(formData.entries());
 
     submitButton.disabled = true;
-    submitButton.textContent = 'Enviando...';
+    submitButton.textContent = document.documentElement.lang === 'pt-BR' ? 'Enviando...' : 'Sending...';
     
     try {
         const response = await fetch(form.action, {
@@ -100,17 +232,29 @@ const handleContactFormSubmit = async (event) => {
         });
 
         if (response.ok) {
-            showFormMessage('Mensagem enviada com sucesso!', 'success');
+            showFormMessage(
+                document.documentElement.lang === 'pt-BR' 
+                    ? 'Mensagem enviada com sucesso!' 
+                    : 'Message sent successfully!', 
+                'success'
+            );
             form.reset();
         } else {
             throw new Error('Houve um problema ao enviar sua mensagem.');
         }
     } catch (error) {
         console.error('Erro no envio do formulário:', error);
-        showFormMessage('Erro ao enviar. Tente novamente mais tarde.', 'error');
+        showFormMessage(
+            document.documentElement.lang === 'pt-BR' 
+                ? 'Erro ao enviar. Tente novamente mais tarde.' 
+                : 'Error sending. Try again later.', 
+            'error'
+        );
     } finally {
         submitButton.disabled = false;
-        submitButton.textContent = 'Enviar Mensagem';
+        submitButton.textContent = document.documentElement.lang === 'pt-BR' 
+            ? 'Enviar Mensagem' 
+            : 'Send Message';
     }
 };
 
@@ -150,24 +294,38 @@ const fetchRepositories = async () => {
 
 const updateUserProfile = (userData) => {
     if (!userData) return;
+    
+    cachedUserData = userData;
 
-    elements.avatar.src = userData.avatar_url;
-    elements.avatar.alt = `Avatar de ${userData.login}`;
-    elements.name.textContent = userData.name || userData.login;
-    elements.bio.textContent = userData.bio || 'Biografia não disponível';
-    elements.location.textContent = userData.location || 'Localização não especificada';
+    if (!elements.avatar.src || elements.avatar.classList.contains('skeleton')) {
+        elements.avatar.src = userData.avatar_url;
+        elements.avatar.alt = `Avatar de ${userData.login}`;
+    }
+
+    if (!elements.name.textContent || elements.name.classList.contains('skeleton-text')) {
+        elements.name.textContent = userData.name || userData.login;
+    }
+
+    elements.bio.textContent = userData.bio || (document.documentElement.lang === 'pt-BR' ? 'Biografia não disponível' : 'Bio not available');
+    elements.location.textContent = userData.location || (document.documentElement.lang === 'pt-BR' ? 'Localização não especificada' : 'Location not specified');
+
     elements.followers.textContent = userData.followers;
     elements.following.textContent = userData.following;
     elements.repos.textContent = userData.public_repos;
 
-    elements.linkedin.href = config.socialLinks.linkedin;
-    elements.twitter.href = config.socialLinks.twitter;
-    elements.instagram.href = config.socialLinks.instagram;
+    if (!elements.linkedin.href) {
+        elements.linkedin.href = config.socialLinks.linkedin;
+        elements.twitter.href = config.socialLinks.twitter;
+        elements.instagram.href = config.socialLinks.instagram;
+    }
 
-    document.querySelector('.profile-header.skeleton')?.classList.remove('skeleton');
-    elements.avatar.classList.remove('skeleton');
-    elements.name.classList.remove('skeleton-text');
-    elements.bio.classList.remove('skeleton-text');
+    const profileHeader = document.querySelector('.profile-header.skeleton');
+    if (profileHeader) {
+        profileHeader.classList.remove('skeleton');
+        elements.avatar.classList.remove('skeleton');
+        elements.name.classList.remove('skeleton-text');
+        elements.bio.classList.remove('skeleton-text');
+    }
 };
 
 const createRepositoryCard = (repo) => {
@@ -175,16 +333,17 @@ const createRepositoryCard = (repo) => {
     card.className = 'repository-card';
 
     const languageColor = config.languageColors[repo.language] || config.languageColors.default;
+    const updatedAt = new Date(repo.updated_at).toLocaleDateString(document.documentElement.lang === 'pt-BR' ? 'pt-BR' : 'en-US');
 
     card.innerHTML = `
         <h3>${repo.name} ${repo.fork ? '<span class="org-badge">Fork</span>' : ''}</h3>
-        <p>${repo.description || 'Descrição não disponível'}</p>
+        <p>${repo.description || (document.documentElement.lang === 'pt-BR' ? 'Descrição não disponível' : 'No description available')}</p>
         <div class="repository-meta">
             <div class="language-tag">
                 <span class="language-dot" style="background-color: ${languageColor}"></span>
                 ${repo.language || 'N/A'}
             </div>
-            <span>Atualizado em: ${new Date(repo.updated_at).toLocaleDateString('pt-BR')}</span>
+            <span>${document.documentElement.lang === 'pt-BR' ? 'Atualizado em:' : 'Updated:'} ${updatedAt}</span>
         </div>
     `;
     card.addEventListener('click', () => window.open(repo.html_url, '_blank'));
@@ -201,7 +360,7 @@ const updateRepositoriesList = (repositories) => {
 
 const updateLanguageFilter = (repositories) => {
     const languages = new Set(repositories.map(repo => repo.language).filter(Boolean));
-    elements.languageFilter.innerHTML = '<option value="">Todas as Linguagens</option>';
+    elements.languageFilter.innerHTML = `<option value="">${document.documentElement.lang === 'pt-BR' ? 'Todas as Linguagens' : 'All Languages'}</option>`;
     languages.forEach(language => {
         const option = document.createElement('option');
         option.value = language;
@@ -248,6 +407,7 @@ const handleLoadMore = () => {
 
 const initialize = async () => {
     initializeTheme();
+    initializeLanguage();
 
     elements.themeToggle.addEventListener('click', toggleTheme);
     elements.searchInput.addEventListener('input', handleSearch);
@@ -258,11 +418,17 @@ const initialize = async () => {
         elements.contactForm.addEventListener('submit', handleContactFormSubmit);
     }
 
-    const userData = await fetchUserData();
-    updateUserProfile(userData);
+    if (!cachedUserData) {
+        const userData = await fetchUserData();
+        updateUserProfile(userData);
+    } else {
+        updateUserProfile(cachedUserData);
+    }
 
-    config.allRepositories = await fetchRepositories();
-    updateLanguageFilter(config.allRepositories);
+    if (config.allRepositories.length === 0) {
+        config.allRepositories = await fetchRepositories();
+        updateLanguageFilter(config.allRepositories);
+    }
     updateRepositoriesList(config.allRepositories.slice(0, config.perPage));
     elements.loadMore.style.display = config.allRepositories.length > config.perPage ? 'block' : 'none';
     elements.loadMore.dataset.fullRepoList = JSON.stringify(config.allRepositories);
