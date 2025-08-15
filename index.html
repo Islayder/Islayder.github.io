@@ -35,7 +35,7 @@
                 <li><a href="#sobre-mim" data-translate="navAbout">Sobre Mim</a></li>
                 <li><a href="#experiencias" data-translate="navExperience">Experiências</a></li>
                 <li><a href="#linguagens-tecnologias" data-translate="navSkills">Habilidades</a></li>
-                <li><a href="#repositorios" data-translate="navRepositories">Repositórios</a></li>
+                <li><a href="#repositorios" data-translate="navRepositories">Projetos</a></li>
                 <li><a href="#contato" data-translate="navContact">Contato</a></li>
             </ul>
 
@@ -186,41 +186,6 @@
                 </div>
             </div>
         </section>
-
-        <section id="projetos-destaque" class="repositories-section">
-            <h2 data-translate="featuredProjectsTitle">Projetos em Destaque</h2>
-            <p style="text-align: center; margin-bottom: 2rem;" data-translate="featuredProjectsDesc">Uma seleção dos meus principais projetos, com imagens e tecnologias utilizadas.</p>
-            <div class="repositories-grid">
-                <div class="repository-card">
-                    <img src="https://via.placeholder.com/400x250.png?text=Imagem+do+seu+Projeto" alt="Imagem do Projeto 1" style="width:100%; border-radius: 6px; margin-bottom: 1rem;">
-                    <h3><a href="#" target="_blank">Nome do Projeto 1</a></h3>
-                    <p>Descrição breve e interessante do seu primeiro projeto. Explique o que ele faz, o problema que resolve e seu papel no desenvolvimento.</p>
-                    <div class="repository-meta" style="flex-wrap: wrap; gap: 0.5rem;">
-                        <span class="language-tag">Tecnologia 1</span>
-                        <span class="language-tag">Tecnologia 2</span>
-                        <span class="language-tag">Tecnologia 3</span>
-                    </div>
-                </div>
-                <div class="repository-card">
-                     <img src="https://via.placeholder.com/400x250.png/a2a2a2?text=GIF+do+seu+Projeto" alt="GIF do Projeto 2" style="width:100%; border-radius: 6px; margin-bottom: 1rem;">
-                    <h3><a href="#" target="_blank">Nome do Projeto 2</a></h3>
-                    <p>Descrição do seu segundo projeto principal. Mostre as funcionalidades mais legais e os desafios que você superou.</p>
-                    <div class="repository-meta" style="flex-wrap: wrap; gap: 0.5rem;">
-                        <span class="language-tag">Tecnologia A</span>
-                        <span class="language-tag">Tecnologia B</span>
-                    </div>
-                </div>
-                <div class="repository-card">
-                    <img src="https://via.placeholder.com/400x250.png/a2a2a2?text=GIF+do+seu+Projeto" alt="GIF do Projeto 2" style="width:100%; border-radius: 6px; margin-bottom: 1rem;">
-                   <h3><a href="#" target="_blank">Nome do Projeto 2</a></h3>
-                   <p>Descrição do seu segundo projeto principal. Mostre as funcionalidades mais legais e os desafios que você superou.</p>
-                   <div class="repository-meta" style="flex-wrap: wrap; gap: 0.5rem;">
-                       <span class="language-tag">Tecnologia A</span>
-                       <span class="language-tag">Tecnologia B</span>
-                   </div>
-               </div>
-            </div>
-        </section>
         
         <section id="linguagens-tecnologias" class="languages-section">
             <h2 data-translate="skillsTitle">Habilidades e Ferramentas</h2>
@@ -264,22 +229,33 @@
             </div>
         </section>
 
-        <section id="repositorios" class="repositories-section">
+        <!-- SEÇÃO DE REPOSITÓRIOS TRANSFORMADA EM TIMELINE -->
+        <section id="repositorios" class="projects-timeline-section">
             <div class="search-section">
                 <div class="search-container">
-                    <input type="text" id="searchInput" placeholder="Buscar repositórios..." class="search-input">
+                    <input type="text" id="searchInput" placeholder="Buscar projetos..." class="search-input" data-translate="searchProjects">
                     <div class="filter-container">
                         <select id="languageFilter" class="language-filter">
                             <option value="" data-translate="allLanguages">Todas as Linguagens</option>
+                        </select>
+                        <select id="typeFilter" class="language-filter">
+                            <option value="" data-translate="allTypes">Todos os Tipos</option>
+                            <option value="professional" data-translate="professional">Profissional</option>
+                            <option value="academic" data-translate="academic">Acadêmico</option>
+                            <option value="personal" data-translate="personal">Pessoal</option>
                         </select>
                     </div>
                 </div>
             </div>
 
-            <h2 id="title-repositories" data-translate="repositoriesTitle">Repositórios</h2>
-            <div id="repositories" class="repositories-grid">
+            <h2 data-translate="projectsTitle">Linha do Tempo de Projetos</h2>
+            
+            <div class="timeline-container">
+                <div class="timeline-line"></div>
+                <div id="projectsTimeline" class="projects-timeline">
+                    <!-- Projetos serão carregados dinamicamente via JavaScript -->
+                </div>
             </div>
-            <button id="loadMore" class="load-more-btn" data-translate="loadMore">Carregar Mais</button>
         </section>
 
         <section id="contato" class="contact-section">
@@ -295,31 +271,23 @@
                 </a>
             </div>
             <form action="https://api.web3forms.com/submit" method="POST" class="contact-form">
-        
                 <input type="hidden" name="access_key" value="4a4b2b04-cf19-4033-b9a3-711a1ccb1981">
-        
                 <div class="form-group">
                     <label for="name" data-translate="formName">Nome:</label>
                     <input type="text" id="name" name="name" required>
                 </div>
-                
                 <div class="form-group">
                     <label for="email" data-translate="formEmail">Seu E-mail:</label>
                     <input type="email" id="email" name="email" required>
                 </div>
-                
                 <div class="form-group">
                     <label for="message" data-translate="formMessage">Mensagem:</label>
                     <textarea id="message" name="message" rows="5" required></textarea>
                 </div>
-        
                 <input type="hidden" name="subject" value="Novo Contato do Portfólio - De: {{ name }}">
-                
                 <button type="submit" class="submit-btn" data-translate="formSubmit">Enviar Mensagem</button>
-        
             </form>
         </section>
-
     </main>
 
     <footer class="footer">
@@ -336,5 +304,4 @@
 
     <script src="/assets/js/script.js"></script>
 </body>
-
 </html>
