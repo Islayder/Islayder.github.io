@@ -45,6 +45,24 @@ O protótipo de alta fidelidade que serviu como referência visual para o desenv
 
 ---
 
+📸 Demonstrações dos Projetos
+
+Aqui estão algumas capturas de tela e GIFs mostrando o funcionamento do portfólio e dos projetos em destaque:
+
+🖥️ Página Inicial
+![Imagem Página Inicial](assets/img/pagina-Inicial.png)
+
+📂 Lista de Repositórios (via API do GitHub)
+![Repositórios](assets/img/repositórios.png)
+
+🌙 Tema Escuro
+![Gif Alera cor](assets/img/altera-Cor.gif)
+
+📱 Responsividade (mobile)
+![Responsividade](assets/img/responsividade.gif)
+
+---
+
 ## 📁 Estrutura de Diretórios
 
 O projeto está organizado da seguinte forma para manter a clareza e a modularidade:
