@@ -4,7 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfólio GitHub - Islayder</title>
+    <meta name="description" content="Portfólio de Islayder Jackson, desenvolvedor back-end Java em formação, com foco em Spring Boot, APIs RESTful, SQL, PostgreSQL, QA e Análise de Requisitos.">
+    <meta name="author" content="Islayder Jackson">
+    <meta property="og:title" content="Islayder Jackson | Desenvolvedor Back-end Java">
+    <meta property="og:description" content="Portfólio de Islayder Jackson, desenvolvedor back-end Java em formação, com foco em Spring Boot, APIs RESTful, SQL, PostgreSQL, QA e Análise de Requisitos.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://islayder.github.io/">
+    <title>Islayder Jackson | Desenvolvedor Back-end Java</title>
     <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 
@@ -63,7 +69,7 @@
                     <img id="avatar" class="avatar skeleton" src="" alt="Avatar do perfil">
                 </div>
                 <div class="profile-info">
-                    <h1 id="name" class="skeleton-text" data-translate="loading">Carregando...</h1>
+                    <h1 id="profileName" class="skeleton-text" data-translate="loading">Carregando...</h1>
                     <p id="bio" class="skeleton-text" data-translate="loading">Carregando...</p>
                     <div class="stats">
                         <div class="stat">
@@ -128,10 +134,13 @@
         <section id="sobre-mim" class="about-section">
             <h2 data-translate="aboutMeTitle">Sobre Mim</h2>
             <p data-translate="aboutMeP1">
-                Olá! Meu nome é <strong>Islayder</strong>. Sou um profissional de tecnologia com foco em <strong>Análise de Requisitos</strong> e uma forte capacidade para atuar como <strong>Product Owner (PO)</strong>. Minha paixão é conectar a visão de negócio às soluções técnicas, dialogando diretamente com clientes para entender suas dores e transformar ideias em produtos de sucesso.
+                Olá! Meu nome é Islayder Jackson, sou estudante de Engenharia de Software na PUC Minas e desenvolvedor back-end Java em formação, com foco em Spring Boot, APIs RESTful, SQL e PostgreSQL.
             </p>
             <p data-translate="aboutMeP2">
-                Com experiência em metodologias ágeis, sou responsável por definir a visão do produto, priorizar o backlog e garantir que o desenvolvimento esteja alinhado com as expectativas dos stakeholders. Para embasar minhas decisões, utilizo <strong>Python</strong> para análise de dados, extraindo insights que direcionam a estratégia e validam os requisitos do projeto.
+                Tenho experiência profissional em requisitos, QA e validação de regras de negócio, atuando na ponte entre áreas de negócio e times técnicos. Essa vivência me ajuda a desenvolver soluções mais alinhadas às necessidades reais dos usuários, com atenção à consistência dos dados, critérios de aceite e qualidade das entregas.
+            </p>
+            <p data-translate="aboutMeP3">
+                Atualmente, venho aprofundando meus conhecimentos em desenvolvimento back-end, modelagem de dados, integração com APIs externas, arquitetura MVC, testes de APIs com Postman e construção de sistemas com Java, Spring Boot e bancos relacionais.
             </p>
             
             <hr>
@@ -144,9 +153,9 @@
                             alt="Logo PUC Minas" class="puc-logo" width="200px">
                     </div>
                     <div class="education-info">
-                        <strong>Pontifícia Universidade Católica de Minas Gerais (PUC Minas)</strong>
-                        <p>Engenharia de Software (2024 - Presente)</p>
-                        <p>
+                        <strong data-translate="educationUniversity">Pontifícia Universidade Católica de Minas Gerais (PUC Minas)</strong>
+                        <p data-translate="educationDegree">Engenharia de Software (2024 - Presente)</p>
+                        <p data-translate="educationDescription">
                             Durante minha graduação, tenho tido a oportunidade de aprofundar meus conhecimentos em
                             programação,
                             banco de dados, redes de computadores e engenharia de software. Além disso, participei de
@@ -165,22 +174,49 @@
                 
                 <div class="experience-item">
                     <div class="experience-header">
-                        <h3 data-translate="jobTitle">Analista de Requisitos</h3>
-                        <span class="experience-period" data-translate="jobPeriod">Julho 2025 - Presente</span>
+                        <h3 data-translate="job1Title">Product Owner / QA Engineer — Estágio</h3>
+                        <span class="experience-period" data-translate="job1Period">Out/2025 – Abr/2026</span>
                     </div>
                     <div class="experience-company">
-                        <span>Empresa 4 MTI</span>
+                        <span>dti digital</span>
                     </div>
                     <div class="experience-description">
-                        <p data-translate="jobDescription">
-                            Atuo como a principal ponte entre clientes e a equipe de desenvolvimento. Sou responsável por todo o ciclo de vida dos requisitos: desde o levantamento inicial e a definição da visão do produto em conversas com stakeholders, até a priorização do backlog e a criação de histórias de usuário detalhadas. Utilizo Python para análises que suportam a tomada de decisões estratégicas do produto.
+                        <p data-translate="job1Description">
+                            Atuação na validação de regras de negócio, testes funcionais e exploratórios, refinamento de demandas e apoio à construção de histórias de usuário e critérios de aceite. Utilização de Postman para validação de APIs RESTful, análise de payloads JSON, cenários de erro e consultas SQL para investigação de inconsistências e apoio à auditoria de dados.
                         </p>
                         <ul class="experience-skills">
-                            <li data-translate="skillReqAnalysis">Análise de Requisitos</li>
-                            <li data-translate="skillProdOwner">Product Ownership</li>
-                            <li data-translate="skillPython">Python para Análise de Dados</li>
-                            <li data-translate="skillAgile">Metodologias Ágeis</li>
-                            <li data-translate="skillBacklog">Gestão de Backlog</li>
+                            <li data-translate="job1SkillQA">QA</li>
+                            <li data-translate="job1SkillPostman">Postman</li>
+                            <li data-translate="job1SkillRest">APIs RESTful</li>
+                            <li data-translate="job1SkillSQL">SQL</li>
+                            <li data-translate="job1SkillAcceptance">Critérios de Aceite</li>
+                            <li data-translate="job1SkillScrum">Scrum</li>
+                            <li data-translate="job1SkillAzure">Azure DevOps</li>
+                            <li data-translate="job1SkillBusinessRules">Regras de Negócio</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <h3 data-translate="job2Title">Analista de Requisitos — Estágio</h3>
+                        <span class="experience-period" data-translate="job2Period">Mai/2025 – Set/2025</span>
+                    </div>
+                    <div class="experience-company">
+                        <span>4mti</span>
+                    </div>
+                    <div class="experience-description">
+                        <p data-translate="job2Description">
+                            Atuação no levantamento e análise de requisitos para sistemas, mapeamento de fluxos de dados e regras de negócio junto a stakeholders. Apoio em validações sistêmicas, consultas SQL, acompanhamento de demandas no GitLab e comunicação entre áreas de negócio e times técnicos.
+                        </p>
+                        <ul class="experience-skills">
+                            <li data-translate="job2SkillReqAnalysis">Análise de Requisitos</li>
+                            <li data-translate="job2SkillSQL">SQL</li>
+                            <li data-translate="job2SkillGitLab">GitLab</li>
+                            <li data-translate="job2SkillBusinessRules">Regras de Negócio</li>
+                            <li data-translate="job2SkillStakeholders">Stakeholders</li>
+                            <li data-translate="job2SkillScrum">Scrum</li>
+                            <li data-translate="job2SkillFlowModeling">Modelagem de Fluxos</li>
                         </ul>
                     </div>
                 </div>
@@ -189,71 +225,207 @@
         
         <section id="linguagens-tecnologias" class="languages-section">
             <h2 data-translate="skillsTitle">Habilidades e Ferramentas</h2>
-            <div class="languages-grid">
-                <div class="language-item">
-                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/python.svg" alt="Python" class="language-icon">
-                    <span>Python</span>
+            <div class="skills-categories">
+                <div class="skills-category">
+                    <h3 data-translate="skillsCatBackend">Back-end</h3>
+                    <ul class="skills-tags">
+                        <li class="skill-item">
+                            <img src="https://img.icons8.com/ios-glyphs/30/000000/java-coffee-cup-logo.png" alt="" class="skill-icon skill-icon--generic" width="22" height="22" loading="lazy">
+                            <span>Java</span>
+                        </li>
+                        <li class="skill-item">
+                            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/springboot.svg" alt="" class="skill-icon" width="22" height="22" loading="lazy">
+                            <span>Spring Boot</span>
+                        </li>
+                        <li class="skill-item">
+                            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/openapiinitiative.svg" alt="" class="skill-icon" width="22" height="22" loading="lazy">
+                            <span data-translate="skillRestApis">APIs RESTful</span>
+                        </li>
+                        <li class="skill-item">
+                            <img src="https://img.icons8.com/ios-glyphs/30/000000/module.png" alt="" class="skill-icon skill-icon--generic" width="22" height="22" loading="lazy">
+                            <span>POO</span>
+                        </li>
+                        <li class="skill-item">
+                            <img src="https://img.icons8.com/ios-glyphs/30/000000/layers.png" alt="" class="skill-icon skill-icon--generic" width="22" height="22" loading="lazy">
+                            <span>MVC</span>
+                        </li>
+                        <li class="skill-item">
+                            <img src="https://img.icons8.com/ios-glyphs/30/000000/database.png" alt="" class="skill-icon skill-icon--generic" width="22" height="22" loading="lazy">
+                            <span>CRUD</span>
+                        </li>
+                        <li class="skill-item">
+                            <img src="https://img.icons8.com/ios-glyphs/30/000000/plug.png" alt="" class="skill-icon skill-icon--generic" width="22" height="22" loading="lazy">
+                            <span data-translate="skillExternalApi">Integração com APIs externas</span>
+                        </li>
+                    </ul>
                 </div>
-                <div class="language-item">
-                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/pandas.svg" alt="Pandas" class="language-icon">
-                    <span>Pandas</span>
+                <div class="skills-category">
+                    <h3 data-translate="skillsCatDatabase">Banco de Dados</h3>
+                    <ul class="skills-tags">
+                        <li class="skill-item">
+                            <img src="https://img.icons8.com/ios-glyphs/30/000000/sql.png" alt="" class="skill-icon skill-icon--generic" width="22" height="22" loading="lazy">
+                            <span>SQL</span>
+                        </li>
+                        <li class="skill-item">
+                            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/postgresql.svg" alt="" class="skill-icon" width="22" height="22" loading="lazy">
+                            <span>PostgreSQL</span>
+                        </li>
+                        <li class="skill-item">
+                            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/microsoft.svg" alt="" class="skill-icon" width="22" height="22" loading="lazy">
+                            <span>SQL Server</span>
+                        </li>
+                        <li class="skill-item">
+                            <img src="https://img.icons8.com/ios-glyphs/30/000000/mind-map.png" alt="" class="skill-icon skill-icon--generic" width="22" height="22" loading="lazy">
+                            <span data-translate="skillDataModeling">Modelagem de Dados</span>
+                        </li>
+                        <li class="skill-item">
+                            <img src="https://img.icons8.com/ios-glyphs/30/000000/flow-chart.png" alt="" class="skill-icon skill-icon--generic" width="22" height="22" loading="lazy">
+                            <span>DER</span>
+                        </li>
+                        <li class="skill-item">
+                            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/dbeaver.svg" alt="" class="skill-icon" width="22" height="22" loading="lazy">
+                            <span>DBeaver</span>
+                        </li>
+                        <li class="skill-item">
+                            <img src="https://img.icons8.com/ios-glyphs/30/000000/data-configuration.png" alt="" class="skill-icon skill-icon--generic" width="22" height="22" loading="lazy">
+                            <span>PgAdmin</span>
+                        </li>
+                        <li class="skill-item">
+                            <img src="https://img.icons8.com/ios-glyphs/30/000000/server.png" alt="" class="skill-icon skill-icon--generic" width="22" height="22" loading="lazy">
+                            <span>SSMS</span>
+                        </li>
+                    </ul>
                 </div>
-                <div class="language-item">
-                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/numpy.svg" alt="NumPy" class="language-icon">
-                    <span>NumPy</span>
+                <div class="skills-category">
+                    <h3 data-translate="skillsCatTesting">Testes e Validação</h3>
+                    <ul class="skills-tags">
+                        <li class="skill-item">
+                            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/postman.svg" alt="" class="skill-icon" width="22" height="22" loading="lazy">
+                            <span>Postman</span>
+                        </li>
+                        <li class="skill-item">
+                            <img src="https://img.icons8.com/ios-glyphs/30/000000/checked-checkbox.png" alt="" class="skill-icon skill-icon--generic" width="22" height="22" loading="lazy">
+                            <span data-translate="skillFunctionalTesting">Testes Funcionais</span>
+                        </li>
+                        <li class="skill-item">
+                            <img src="https://img.icons8.com/ios-glyphs/30/000000/search.png" alt="" class="skill-icon skill-icon--generic" width="22" height="22" loading="lazy">
+                            <span data-translate="skillExploratoryTesting">Testes Exploratórios</span>
+                        </li>
+                        <li class="skill-item">
+                            <img src="https://img.icons8.com/ios-glyphs/30/000000/api-settings.png" alt="" class="skill-icon skill-icon--generic" width="22" height="22" loading="lazy">
+                            <span data-translate="skillApiValidation">Validação de APIs</span>
+                        </li>
+                        <li class="skill-item">
+                            <img src="https://img.icons8.com/ios-glyphs/30/000000/rules.png" alt="" class="skill-icon skill-icon--generic" width="22" height="22" loading="lazy">
+                            <span data-translate="skillBusinessRuleValidation">Validação de Regras de Negócio</span>
+                        </li>
+                        <li class="skill-item">
+                            <img src="https://img.icons8.com/ios-glyphs/30/000000/find-and-replace.png" alt="" class="skill-icon skill-icon--generic" width="22" height="22" loading="lazy">
+                            <span data-translate="skillSqlInvestigation">Investigação com SQL</span>
+                        </li>
+                    </ul>
                 </div>
-                <div class="language-item">
-                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/git.svg" alt="Git" class="language-icon">
-                    <span>Git</span>
+                <div class="skills-category">
+                    <h3 data-translate="skillsCatFrontend">Front-end básico</h3>
+                    <ul class="skills-tags">
+                        <li class="skill-item">
+                            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/html5.svg" alt="" class="skill-icon" width="22" height="22" loading="lazy">
+                            <span>HTML5</span>
+                        </li>
+                        <li class="skill-item">
+                            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/css3.svg" alt="" class="skill-icon" width="22" height="22" loading="lazy">
+                            <span>CSS3</span>
+                        </li>
+                        <li class="skill-item">
+                            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/javascript.svg" alt="" class="skill-icon" width="22" height="22" loading="lazy">
+                            <span>JavaScript</span>
+                        </li>
+                    </ul>
                 </div>
-                <div class="language-item">
-                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/jira.svg" alt="Jira" class="language-icon">
-                    <span>Jira</span>
-                </div>
-                <div class="language-item">
-                    <img src="https://img.icons8.com/ios-filled/50/000000/sql.png" alt="Ícone representando SQL" class="language-icon">
-                    <span title="Linguagem de consulta estruturada (SQL)">SQL</span>
-                </div>
-                <div class="language-item">
-                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/html5.svg" alt="HTML" class="language-icon">
-                    <span>HTML5</span>
-                </div>
-                <div class="language-item">
-                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/css3.svg" alt="CSS3" class="language-icon">
-                    <span>CSS3</span>
-                </div>
-                <div class="language-item">
-                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/javascript.svg" alt="JavaScript" class="language-icon">
-                    <span>JavaScript</span>
+                <div class="skills-category">
+                    <h3 data-translate="skillsCatTools">Ferramentas e Metodologias</h3>
+                    <ul class="skills-tags">
+                        <li class="skill-item">
+                            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/git.svg" alt="" class="skill-icon" width="22" height="22" loading="lazy">
+                            <span>Git</span>
+                        </li>
+                        <li class="skill-item">
+                            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/github.svg" alt="" class="skill-icon" width="22" height="22" loading="lazy">
+                            <span>GitHub</span>
+                        </li>
+                        <li class="skill-item">
+                            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/gitlab.svg" alt="" class="skill-icon" width="22" height="22" loading="lazy">
+                            <span>GitLab</span>
+                        </li>
+                        <li class="skill-item">
+                            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/azuredevops.svg" alt="" class="skill-icon" width="22" height="22" loading="lazy">
+                            <span>Azure DevOps</span>
+                        </li>
+                        <li class="skill-item">
+                            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/jira.svg" alt="" class="skill-icon" width="22" height="22" loading="lazy">
+                            <span>Jira</span>
+                        </li>
+                        <li class="skill-item">
+                            <img src="https://img.icons8.com/ios-glyphs/30/000000/sprint-iteration.png" alt="" class="skill-icon skill-icon--generic" width="22" height="22" loading="lazy">
+                            <span>Scrum</span>
+                        </li>
+                        <li class="skill-item">
+                            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/render.svg" alt="" class="skill-icon" width="22" height="22" loading="lazy">
+                            <span>Render</span>
+                        </li>
+                        <li class="skill-item">
+                            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/vercel.svg" alt="" class="skill-icon" width="22" height="22" loading="lazy">
+                            <span>Vercel</span>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </section>
 
-        <!-- SEÇÃO DE REPOSITÓRIOS TRANSFORMADA EM TIMELINE -->
+        <!-- SEÇÃO DE PROJETOS -->
         <section id="repositorios" class="projects-timeline-section">
-            <div class="search-section">
-                <div class="search-container">
-                    <input type="text" id="searchInput" placeholder="Buscar projetos..." class="search-input" data-translate="searchProjects">
-                    <div class="filter-container">
-                        <select id="languageFilter" class="language-filter">
-                            <option value="" data-translate="allLanguages">Todas as Linguagens</option>
-                        </select>
-                        <select id="typeFilter" class="language-filter">
-                            <option value="" data-translate="allTypes">Todos os Tipos</option>
-                            <option value="professional" data-translate="professional">Profissional</option>
-                            <option value="academic" data-translate="academic">Acadêmico</option>
-                            <option value="personal" data-translate="personal">Pessoal</option>
-                        </select>
-                    </div>
-                </div>
+
+            <div class="featured-projects-section">
+                <h2 data-translate="featuredProjectsTitle">Projetos em Destaque</h2>
+                <p class="section-subtitle" data-translate="featuredProjectsSubtitle">
+                    Projetos acadêmicos e práticos que demonstram minha experiência com Java, Spring Boot, APIs RESTful, bancos de dados relacionais e integração com serviços externos.
+                </p>
+                <div id="featuredProjectsGrid" class="featured-projects-grid"></div>
+                <p id="featuredProjectsEmpty" class="featured-projects-empty" hidden data-translate="featuredProjectsEmpty">
+                    Nenhum projeto em destaque encontrado para esta busca.
+                </p>
             </div>
 
-            <h2 data-translate="projectsTitle">Linha do Tempo de Projetos</h2>
-            
-            <div class="timeline-container">
-                <div class="timeline-line"></div>
-                <div id="projectsTimeline" class="projects-timeline">
-                    <!-- Projetos serão carregados dinamicamente via JavaScript -->
+            <hr class="section-divider">
+
+            <div class="github-timeline-section">
+                <h2 data-translate="githubTimelineTitle">Linha do Tempo do GitHub</h2>
+                <p class="section-subtitle" data-translate="githubTimelineSubtitle">
+                    Repositórios públicos carregados automaticamente pela API do GitHub.
+                </p>
+
+                <div class="search-section">
+                    <div class="search-container">
+                        <input type="text" id="searchInput" placeholder="Buscar projetos..." class="search-input" data-translate="searchProjects">
+                        <div class="filter-container">
+                            <select id="languageFilter" class="language-filter">
+                                <option value="" data-translate="allLanguages">Todas as Linguagens</option>
+                            </select>
+                            <select id="typeFilter" class="language-filter">
+                                <option value="" data-translate="allTypes">Todos os Tipos</option>
+                                <option value="professional" data-translate="professional">Profissional</option>
+                                <option value="academic" data-translate="academic">Acadêmico</option>
+                                <option value="personal" data-translate="personal">Pessoal</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-container">
+                    <div class="timeline-line"></div>
+                    <div id="projectsTimeline" class="projects-timeline">
+                        <!-- Projetos serão carregados dinamicamente via JavaScript -->
+                    </div>
                 </div>
             </div>
         </section>
@@ -273,18 +445,18 @@
             <form action="https://api.web3forms.com/submit" method="POST" class="contact-form">
                 <input type="hidden" name="access_key" value="4a4b2b04-cf19-4033-b9a3-711a1ccb1981">
                 <div class="form-group">
-                    <label for="name" data-translate="formName">Nome:</label>
-                    <input type="text" id="name" name="name" required>
+                    <label for="contact-name" data-translate="formName">Nome:</label>
+                    <input type="text" id="contact-name" name="name" required>
                 </div>
                 <div class="form-group">
-                    <label for="email" data-translate="formEmail">Seu E-mail:</label>
-                    <input type="email" id="email" name="email" required>
+                    <label for="contact-email" data-translate="formEmail">Seu E-mail:</label>
+                    <input type="email" id="contact-email" name="email" required>
                 </div>
                 <div class="form-group">
-                    <label for="message" data-translate="formMessage">Mensagem:</label>
-                    <textarea id="message" name="message" rows="5" required></textarea>
+                    <label for="contact-message" data-translate="formMessage">Mensagem:</label>
+                    <textarea id="contact-message" name="message" rows="5" required></textarea>
                 </div>
-                <input type="hidden" name="subject" value="Novo Contato do Portfólio - De: {{ name }}">
+                <input type="hidden" name="subject" value="Novo contato pelo portfólio - Islayder Jackson">
                 <button type="submit" class="submit-btn" data-translate="formSubmit">Enviar Mensagem</button>
             </form>
         </section>
@@ -293,7 +465,7 @@
     <footer class="footer">
         <div class="footer-content">
             <div class="footer-info">
-                <p>© 2025 - Portfólio GitHub</p>
+                <p data-translate="footerCopyright">© 2026 - Portfólio GitHub</p>
                 <p data-translate="footerDevelopedBy">Desenvolvido por Islayder</p>
             </div>
             <div class="footer-links">

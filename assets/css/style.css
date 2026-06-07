@@ -5,6 +5,7 @@
     --bg-color: #ffffff;
     --bg-color-secondary: #f6f8fa;
     --text-color: #24292e;
+    --secondary-text: #586069;
     --card-bg: #ffffff;
     --border-color: #e1e4e8;
     --shadow-color: rgba(0, 0, 0, 0.1);
@@ -26,6 +27,7 @@
     --bg-color: #0d1117;
     --bg-color-secondary: #0d1117;
     --text-color: #c9d1d9;
+    --secondary-text: #8b949e;
     --card-bg: #161b22;
     --border-color: #30363d;
     --shadow-color: rgba(0, 0, 0, 0.3);
@@ -328,12 +330,106 @@ body {
 
 .languages-section {
     margin-bottom: 3rem;
+    max-width: 100%;
+    min-width: 0;
+    overflow-x: clip;
 }
 
 .languages-section h2 {
     font-size: 1.75rem;
     margin-bottom: 1.5rem;
     color: var(--primary-color);
+}
+
+.skills-categories {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 2rem;
+    background-color: var(--card-bg);
+    border-radius: 10px;
+    box-shadow: 0 4px 6px var(--shadow-color);
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+    overflow-x: clip;
+}
+
+.skills-category {
+    max-width: 100%;
+    min-width: 0;
+}
+
+.skills-category h3 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.skills-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    max-width: 100%;
+    min-width: 0;
+    overflow-x: clip;
+}
+
+.skill-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: var(--bg-color);
+    padding: 0.45rem 0.85rem;
+    border-radius: 999px;
+    font-size: 0.875rem;
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    line-height: 1.2;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+}
+
+.skill-item:hover {
+    border-color: var(--primary-color-translucent);
+    box-shadow: 0 2px 4px var(--shadow-color);
+}
+
+.skill-item span {
+    min-width: 0;
+    overflow-wrap: anywhere;
+}
+
+.skill-icon,
+.skill-item img,
+.skills-tags img {
+    width: 22px;
+    height: 22px;
+    max-width: 22px;
+    max-height: 22px;
+    min-width: 0;
+    flex-shrink: 0;
+    object-fit: contain;
+    display: block;
+    box-sizing: border-box;
+}
+
+.dark-theme .skill-icon {
+    background-color: rgba(255, 255, 255, 0.92);
+    border-radius: 4px;
+    padding: 2px;
+    box-sizing: border-box;
+}
+
+.dark-theme .skill-icon--generic {
+    filter: invert(0.88);
+    background-color: transparent;
+    padding: 0;
 }
 
 .languages-grid {
@@ -403,9 +499,105 @@ body {
 
 .projects-timeline-section h2 {
     font-size: 1.75rem;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
     color: var(--primary-color);
     text-align: center;
+}
+
+.section-subtitle {
+    color: var(--secondary-text);
+    text-align: center;
+    max-width: 720px;
+    margin: 0 auto 2rem;
+    line-height: 1.7;
+}
+
+.section-divider {
+    border: none;
+    border-top: 1px solid var(--border-color);
+    margin: 3rem 0;
+}
+
+.featured-projects-section {
+    margin-bottom: 1rem;
+}
+
+.featured-projects-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}
+
+.featured-project-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 1.75rem;
+    border-radius: 10px;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 12px var(--shadow-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.featured-project-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px var(--shadow-color);
+}
+
+.featured-project-card .project-title {
+    font-size: 1.15rem;
+    line-height: 1.4;
+    margin-bottom: 0.75rem;
+    padding-right: 0.5rem;
+}
+
+.featured-project-card .project-description {
+    flex-grow: 1;
+    font-size: 0.95rem;
+}
+
+.featured-project-card .project-tech {
+    margin-top: auto;
+}
+
+.featured-project-card .project-links {
+    margin-top: 1rem;
+}
+
+.type-academic-practical {
+    background: #FF9800;
+}
+
+@media (max-width: 992px) {
+    .featured-projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.featured-projects-empty {
+    text-align: center;
+    color: var(--secondary-text);
+    font-style: italic;
+    margin-top: 1rem;
+}
+
+.featured-projects-empty[hidden] {
+    display: none;
+}
+
+.github-timeline-section {
+    margin-top: 0;
+}
+
+.github-timeline-section .search-section {
+    margin-bottom: 2rem;
+}
+
+@media (max-width: 768px) {
+    .featured-projects-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 .timeline-container {
@@ -834,6 +1026,25 @@ body {
     
     .experience-skills {
         justify-content: flex-start;
+    }
+
+    .skills-categories {
+        padding: 1rem;
+        gap: 1.5rem;
+    }
+
+    .skill-item {
+        padding: 0.4rem 0.7rem;
+        font-size: 0.8125rem;
+    }
+
+    .skill-icon,
+    .skill-item img,
+    .skills-tags img {
+        width: 20px;
+        height: 20px;
+        max-width: 20px;
+        max-height: 20px;
     }
 
     /* Responsividade para a Timeline */

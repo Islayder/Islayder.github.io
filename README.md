@@ -1,86 +1,126 @@
----
----
+# Portfólio Pessoal — Islayder Jackson
 
-Portfólio Pessoal - Islayder Jackson
+Portfólio pessoal desenvolvido para apresentar meu perfil profissional, experiências, habilidades, projetos em destaque e repositórios públicos do GitHub.
 
-Bem-vindo ao repositório do meu portfólio pessoal! Este projeto foi criado para exibir de maneira interativa meus projetos, habilidades e estatísticas do GitHub, tudo em uma interface moderna, responsiva e com temas claro e escuro.
+**Posicionamento:** Desenvolvedor Back-end Java em formação, com foco em **Spring Boot**, **APIs RESTful**, **SQL**, **PostgreSQL**, **QA**, **Postman** e **Análise de Requisitos**.
 
-A aplicação é alimentada diretamente pela API do GitHub para mostrar informações sempre atualizadas sobre meus repositórios e meu perfil.
-
----
-
-🚀 Acesse a Versão Online
-
-O portfólio está hospedado e pode ser acessado em:
-[https://Islayder.github.io/](https://Islayder.github.io/)
+Site: [https://islayder.github.io/](https://islayder.github.io/)
 
 ---
 
-✨ Funcionalidades
+## Funcionalidades
 
-* Integração com a API do GitHub: Exibe automaticamente informações do perfil, número de seguidores e uma lista completa de repositórios públicos.
-* Projetos em Destaque: Seção dedicada para exibir os principais projetos com imagens, descrição e tecnologias, conforme solicitado na avaliação.
-* Design Responsivo: A interface se adapta para garantir uma ótima experiência em desktops, tablets e celulares.
-* Contato Funcional: Formulário de contato que envia as mensagens diretamente para o e-mail do proprietário, de forma segura e sem recarregar a página.
-* Busca e Filtro de Repositórios: Permite buscar por nome e filtrar os projetos por linguagem de programação.
-* Tema Claro e Escuro: Botão para alternar entre os modos de visualização, com a preferência salva no navegador do usuário.
-
----
-
-🛠️ Tecnologias e Dependências
-
-* Frontend: HTML5, CSS3, JavaScript (ES6+).
-* Dependências de Serviço (APIs):
-
-  * GitHub API: Utilizada para buscar dinamicamente os dados do perfil (foto, nome, bio, seguidores, etc.) e a lista de repositórios públicos.
-  * Web3Forms: Serviço de backend utilizado para receber os dados do formulário de contato e encaminhá-los por e-mail de forma segura.
+- **Perfil integrado com API do GitHub** — avatar, bio, estatísticas e localização
+- **Projetos em Destaque** curados manualmente
+- **Timeline automática** de repositórios públicos do GitHub
+- **Busca de projetos** (destaques e timeline)
+- **Filtros** por linguagem, tipo e tecnologia (timeline)
+- **Tema claro/escuro** com preferência salva no navegador
+- **Troca de idioma PT/EN** com preferência salva no navegador
+- **Formulário de contato** com Web3Forms
+- **Layout responsivo** para desktop, tablet e mobile
 
 ---
 
-## 🎨 Planejamento e Design (Wireframes)
+## Tecnologias utilizadas
 
-O protótipo de alta fidelidade que serviu como referência visual para o desenvolvimento do projeto é apresentado abaixo.
-
-![Design do Portfólio](assets/img/img_wireframe.png)
+- HTML5
+- CSS3
+- JavaScript Vanilla
+- GitHub API
+- Web3Forms
+- GitHub Pages
 
 ---
 
-## 📁 Estrutura de Diretórios
-
-O projeto está organizado da seguinte forma para manter a clareza e a modularidade:
+## Estrutura do projeto
 
 ```
 /
-├── assets/
-│   ├── css/
-│   │   └── style.css      # Folha de estilos principal
-│   └── js/
-│       └── script.js      # Lógica do frontend e chamadas de API
-├── index.html             # Estrutura principal da página
-└── README.md              # Documentação do projeto
+├── index.html
+├── README.md
+└── assets/
+    ├── css/
+    │   └── style.css
+    └── js/
+        └── script.js
 ```
 
+---
 
-📦 Como Rodar Localmente
+## Projetos em destaque
 
-Para clonar e rodar este projeto em sua máquina, siga as etapas abaixo:
+Os projetos em destaque são **curados manualmente** para representar melhor minha experiência prática com **Java**, **Spring Boot**, bancos relacionais e integrações com serviços externos — além do que aparece automaticamente na timeline do GitHub.
 
-1. Clone o repositório:
-   git clone [https://github.com/Islayder/Islayder.github.io.git](https://github.com/Islayder/Islayder.github.io.git)
+Projetos atualmente em destaque:
 
-2. Entre na pasta do projeto:
-   cd Islayder.github.io
-
-3. Abra o arquivo index.html no seu navegador de preferência. Não é necessária nenhuma instalação de dependência adicional para visualização.
+1. **Sistema de Monitoramento de Segurança em Tempo Real**
+2. **E-commerce de Materiais de Construção**
+3. **Sistema de Gestão de Ordens de Serviço**
 
 ---
 
-💬 Contato
+## Integração com GitHub
 
-Você pode entrar em contato comigo por meio dos seguintes canais:
+Os repositórios públicos são carregados automaticamente pela **GitHub API** e exibidos na seção de timeline, com busca e filtros.
 
-* E-mail: [islayderjack@gmail.com](mailto:islayderjack@gmail.com)
-* LinkedIn: [https://www.linkedin.com/in/islayderjackson/](https://www.linkedin.com/in/islayderjackson/)
-* WhatsApp: +55 (31) 99207-4645
+Alguns repositórios podem ser **ocultados da timeline** para evitar redundância — por exemplo, o próprio repositório do portfólio (`Islayder.github.io`).
 
 ---
+
+## Como executar localmente
+
+Como o projeto usa apenas HTML, CSS e JavaScript, não há dependências para instalar.
+
+### Opção 1 — Abrir direto no navegador
+
+Abra o arquivo `index.html` no navegador de preferência.
+
+> Para recursos que dependem de fetch (GitHub API), um servidor local costuma ser mais confiável.
+
+### Opção 2 — Live Server (VS Code / Cursor)
+
+Use a extensão **Live Server** e abra o projeto a partir da raiz do repositório.
+
+### Opção 3 — Servidor local simples
+
+Com Python instalado, na raiz do projeto:
+
+```bash
+python -m http.server 8765
+```
+
+Acesse: [http://localhost:8765](http://localhost:8765)
+
+---
+
+## Deploy
+
+O projeto pode ser publicado pelo **GitHub Pages** a partir do repositório `Islayder.github.io`, na branch `main` (ou conforme a configuração do repositório no GitHub).
+
+Após o push, o site fica disponível em:
+
+[https://islayder.github.io/](https://islayder.github.io/)
+
+---
+
+## Melhorias futuras
+
+- Adicionar links públicos nos projetos em destaque
+- Adicionar link para CV em PDF
+- Melhorar SEO com imagem Open Graph
+- Substituir dependências externas de imagem/ícones por assets locais, se necessário
+- Melhorar descrições dos repositórios públicos no GitHub
+- Adicionar testes básicos ou validação automatizada de responsividade
+
+---
+
+## Contato
+
+- E-mail: [islayderjack@gmail.com](mailto:islayderjack@gmail.com)
+- LinkedIn: [https://www.linkedin.com/in/islayderjackson/](https://www.linkedin.com/in/islayderjackson/)
+- WhatsApp: +55 (31) 99207-4645
+
+---
+
+Desenvolvido por Islayder Jackson.
