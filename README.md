@@ -104,17 +104,6 @@ Após o push, o site fica disponível em:
 
 ---
 
-## Melhorias futuras
-
-- Adicionar links públicos nos projetos em destaque
-- Adicionar link para CV em PDF
-- Melhorar SEO com imagem Open Graph
-- Substituir dependências externas de imagem/ícones por assets locais, se necessário
-- Melhorar descrições dos repositórios públicos no GitHub
-- Adicionar testes básicos ou validação automatizada de responsividade
-
----
-
 ## Contato
 
 - E-mail: [islayderjack@gmail.com](mailto:islayderjack@gmail.com)
